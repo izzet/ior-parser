@@ -79,8 +79,9 @@ def parse_datetime_to_timestamp(date_str: str) -> Optional[int]:
         return None
 
     try:
-        # Try to parse the IOR timestamp format
+        # Try to parse the IOR timestamp format as local time
         dt = datetime.strptime(date_str.strip(), "%a %b %d %H:%M:%S %Y")
+        # dt.timestamp() returns local time as Unix timestamp
         return int(dt.timestamp())
     except ValueError:
         # If parsing fails, return None

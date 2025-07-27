@@ -182,9 +182,14 @@ class TestParseDatetimeToTimestamp:
 
     def test_whitespace_handling(self):
         """Test that function handles whitespace correctly."""
-        assert parse_datetime_to_timestamp(" Sun Jul 27 08:35:34 2025 ") == 1753630534
-        assert parse_datetime_to_timestamp("\tSun Jul 27 08:35:34 2025\t") == 1753630534
-        assert parse_datetime_to_timestamp("  Sun Jul 27 08:35:34 2025  ") == 1753630534
+        # Compute expected timestamp using local time, so test is robust to environment
+        from datetime import datetime
+
+        base_str = "Sun Jul 27 08:35:34 2025"
+        expected = int(datetime.strptime(base_str, "%a %b %d %H:%M:%S %Y").timestamp())
+        assert parse_datetime_to_timestamp(" Sun Jul 27 08:35:34 2025 ") == expected
+        assert parse_datetime_to_timestamp("\tSun Jul 27 08:35:34 2025\t") == expected
+        assert parse_datetime_to_timestamp("  Sun Jul 27 08:35:34 2025  ") == expected
 
     def test_invalid_inputs(self):
         """Test that function returns None for invalid inputs."""
