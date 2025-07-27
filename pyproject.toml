@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ior-parser"
-version = "0.1.0"
+version = "0.1.1"
 description = "IOR benchmark log file parser for performance analysis and comparison"
 authors = [{ name = "Izzet Yildirim", email = "izzetcyildirim@gmail.com" }]
 maintainers = [{ name = "Izzet Yildirim", email = "izzetcyildirim@gmail.com" }]
