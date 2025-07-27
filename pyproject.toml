@@ -30,6 +30,9 @@ classifiers = [
     "Topic :: Utilities",
 ]
 
+[project.scripts]
+ior_parser = "ior_parser.__main__:main"
+
 [project.urls]
 Homepage = "https://github.com/izzet/ior-parser"
 Repository = "https://github.com/izzet/ior-parser"
@@ -37,8 +40,4 @@ Documentation = "https://github.com/izzet/ior-parser#readme"
 "Bug Tracker" = "https://github.com/izzet/ior-parser/issues"
 
 [dependency-groups]
-dev = [
-    "ruff>=0.12.5",
-    "pytest>=7.0.0",
-    "pre-commit>=3.0.0",
-]
+dev = ["ruff>=0.12.5", "pytest>=7.0.0", "pre-commit>=3.0.0"]

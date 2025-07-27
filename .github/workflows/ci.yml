@@ -37,6 +37,16 @@ jobs:
       run: |
         uv run pytest
 
+    - name: CLI smoke test (help)
+      run: |
+        uv pip install --editable .
+        ior_parser --help
+
+    - name: CLI smoke test (parse log to JSON)
+      run: |
+        uv pip install --editable .
+        ior_parser tests/logs/basic_sequential.log --json --pretty
+
   build:
     runs-on: ubuntu-latest
     needs: test
